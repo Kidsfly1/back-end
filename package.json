@@ -1,7 +1,7 @@
 {
-  "name": "KidsFly", 
+  "name": "kidsfly",
   "version": "1.0.0",
-  "description": "", 
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kidsfly1/back-end.git" 
+    "url": "git+https://github.com/Kidsfly1/back-end.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kidsfly1/back-end/issues"  
+    "url": "https://github.com/Kidsfly1/back-end/issues"
   },
-  "homepage": "https://github.com/Kidsfly1/back-end#readme", 
+  "homepage": "https://github.com/Kidsfly1/back-end#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-session-knex": "^1.5.0",
