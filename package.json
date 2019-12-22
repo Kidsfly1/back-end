@@ -1,5 +1,5 @@
 {
-  "name": "NodeTemplate", /*<--- change name of project give description*/
+  "name": "KidsFly", 
   "version": "1.0.0",
   "description": "", 
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easyas123l1/NodeTemplate.git" /*<--- make sure this is pointing to the correct git url*/
+    "url": "git+https://github.com/Kidsfly1/back-end.git" 
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/easyas123l1/NodeTemplate/issues"  /*<--- make sure this is pointing to the correct git url*/
+    "url": "https://github.com/Kidsfly1/back-end/issues"  
   },
-  "homepage": "https://github.com/easyas123l1/NodeTemplate#readme", /*<--- make sure this is pointing to the correct git url*/
+  "homepage": "https://github.com/Kidsfly1/back-end#readme", 
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-session-knex": "^1.5.0",
