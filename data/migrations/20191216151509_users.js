@@ -35,7 +35,7 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("recipes")
+        .inTable("roles")
         .onDelete("RESTRICT")
         .onUpdate("CASCADE");
     })
