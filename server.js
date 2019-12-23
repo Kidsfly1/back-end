@@ -38,7 +38,7 @@ server.use(cors());
 server.use(morgan("tiny"));
 server.use(session(sessionConfig));
 
-server.use("/api", ApiRouter);
+server.use("/api/user", ApiRouter);
 
 server.use("/", (req, res) => {
   res.status(200).json("server is running!");
