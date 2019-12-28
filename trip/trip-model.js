@@ -3,7 +3,9 @@ const db = require("../data/db-config");
 module.exports = {
   getTrips,
   getTripId,
-  addTrip
+  addTrip,
+  update,
+  remove
 };
 
 function getTrips() {
@@ -24,4 +26,16 @@ function addTrip(data) {
 
       return getTripId(id);
     });
+}
+
+function update(id, changed) {
+  return db("trips")
+    .where({ id })
+    .update(changed);
+}
+
+function remove(id) {
+  return db("trips")
+    .where({ id })
+    .del();
 }
