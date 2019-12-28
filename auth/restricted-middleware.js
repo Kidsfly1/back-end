@@ -11,6 +11,7 @@ module.exports = (req, res, next) => {
         res.status(401).json({ message: "Inavlid Token" });
       } else {
         req.token = decodedToken;
+        console.log(req.token);
         next();
       }
     });

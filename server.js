@@ -8,6 +8,7 @@ const KnexSessionStore = require("connect-session-knex")(session);
 
 // Routes for Router & DB config
 const ApiRouter = require("./api/api-router.js");
+const TripRouter = require("./trip/trip-router.js");
 const knex = require("./data/db-config");
 
 // start server!!
@@ -39,6 +40,7 @@ server.use(morgan("tiny"));
 server.use(session(sessionConfig));
 
 server.use("/api/user", ApiRouter);
+server.use("/api/trip", TripRouter);
 
 server.use("/", (req, res) => {
   res.status(200).json("server is running!");
