@@ -42,3 +42,6 @@ GET /api/user/logout
 If you can't figure this one out, I can't help you.
 
 ---
+
+<!-- the next endpoints to start working on should probably be creating a trip.   -->
+<!-- middleware for all routes and start thinking about  -->
