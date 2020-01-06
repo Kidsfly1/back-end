@@ -28,7 +28,7 @@ exports.up = function(knex) {
 
       tbl.integer("zip").notNullable();
 
-      tbl.date("created").notNullable();
+      tbl.string("created").notNullable();
 
       tbl
         .integer("role_id")
