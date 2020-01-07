@@ -18,7 +18,7 @@ router.post("/", restricted, validTrip, (req, res) => {
 });
 
 // get all trips
-router.get("/", restricted, (req, res) => {
+router.get("/admin", restricted, (req, res) => {
   Trips.getTrips()
     .then(trip => {
       res.status(200).json(trip);
@@ -30,8 +30,8 @@ router.get("/", restricted, (req, res) => {
 });
 
 // get all trips by user
-router.get("/mine", restricted, async (req, res) => {
-  let id = await Users.findBy(req.token.username);
+router.get("/my", restricted, async (req, res) => {
+  const id = await Users.findBy(req.token.username);
   Trips.getTripsByUser(id.id)
     .then(trip => {
       res.status(200).json(trip);
@@ -56,10 +56,9 @@ router.get("/:id", restricted, (req, res) => {
     });
 });
 
-// get trip by agent id
-router.get("/agent/:id", restricted, (req, res) => {
-  const id = req.params.id;
-
+// get trips by agent id
+router.get("/agent", restricted, async (req, res) => {
+  const id = await Users.findBy(req.token.username);
   Trips.getByAgentId(id)
     .then(trip => {
       res.status(200).json(trip);

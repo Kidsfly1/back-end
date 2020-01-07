@@ -45,5 +45,161 @@ If you can't figure this one out, I can't help you.
 
 ---
 
-<!-- the next endpoints to start working on should probably be creating a trip.   -->
-<!-- middleware for all routes and start thinking about  -->
+ADD TRIP
+POST /api/trip
+
+Parameter | Type | Required | Description
+
+- date: String: true: accepts any format
+- airport: String: true: 255 char max
+- flight: String: true: 255 char max
+- departure: String: true: time of departure accepts any format of time
+- carryOn: String: true: list items that are carry on if none put "none" 255 char max
+- agentReq: String: false: Male or Female.. etc 255 char max
+- special: String: false: Any special request?? 255 char max
+- upgrades: String: false: Any upgrades purchased? 255 char max
+
+---
+
+GET ALL TRIPS
+GET /api/trip/admin
+
+Only for admin use
+
+Example Response:
+[
+{
+"id": 13,
+"date": "Tuesday, January 7, 2020" 5:45PM,
+"airport": "Los Angeles Airport LAX",
+"flight": "45218",
+"departure": "5:45PM",
+"carryOn": "Nothing",
+"agentReq": "Female",
+"special": 'Apples and music,
+"upgrades": First Class,
+"family_id": 1,
+"agent_id": 3
+}
+]
+
+---
+
+GET MY TRIPS
+GET /api/trip/my
+
+Only for family use
+
+Example Response:
+[
+{
+"id": 11,
+"date": "Tuesday, January 2, 2020" 3:45PM,
+"airport": "Daytona Beach Intl. Airport",
+"flight": "4518",
+"departure": "3:45PM",
+"carryOn": "2 bags",
+"agentReq": "None",
+"special": 'Cookies',
+"upgrades": First Class,
+"family_id": 2,
+"agent_id": 4
+}
+]
+
+---
+
+GET TRIP BY ID
+GET /api/trip/:trip_id
+
+if:
+Family member: must be owner of trip:
+Agent member: must be assigned to trip:
+Admin: full access!
+
+Example Response:
+[
+{
+"id": 21,
+"date": "Tuesday, January 22, 2020" 1:45PM,
+"airport": "Jacksonville International Airport",
+"flight": "2185",
+"departure": "1:45PM",
+"carryOn": "3 bags",
+"agentReq": "Male",
+"special": 'Cookies, Cake, Candy',
+"upgrades": First Class,
+"family_id": 4,
+"agent_id": 4
+}
+]
+
+---
+
+GET TRIPS BY AGENT ID
+GET /api/trip/agent
+
+Only for agent use
+
+Example Response:
+[
+{
+"id": 11,
+"date": "Tuesday, January 2, 2020" 3:45PM,
+"airport": "Daytona Beach Intl. Airport",
+"flight": "4518",
+"departure": "3:45PM",
+"carryOn": "2 bags",
+"agentReq": "None",
+"special": 'Cookies',
+"upgrades": First Class,
+"family_id": 2,
+"agent_id": 4
+},
+{
+"id": 21,
+"date": "Tuesday, January 22, 2020" 1:45PM,
+"airport": "Jacksonville International Airport",
+"flight": "2185",
+"departure": "1:45PM",
+"carryOn": "3 bags",
+"agentReq": "Male",
+"special": 'Cookies, Cake, Candy',
+"upgrades": First Class,
+"family_id": 4,
+"agent_id": 4
+}
+]
+
+---
+
+UPDATE TRIP BY ID
+PUT /api/trip/:trip_id
+
+if:
+Family member: must be owner of trip:
+Agent member: must be assigned to trip:
+Admin: full access!
+
+Parameter | Type | Required | Description
+
+- date: String: true: accepts any format
+- airport: String: true: 255 char max
+- flight: String: true: 255 char max
+- departure: String: true: time of departure accepts any format of time
+- carryOn: String: true: list items that are carry on if none put "none" 255 char max
+- agentReq: String: false: Male or Female.. etc 255 char max
+- special: String: false: Any special request?? 255 char max
+- upgrades: String: false: Any upgrades purchased? 255 char max
+
+!IMPORTANT! When updating any value you must send all values even values that don't change!
+
+---
+
+DELETE TRIP BY ID
+DELETE /api/trip/:trip_id
+
+if:
+Family member: must be owner of trip:
+Agent member: must be assigned to trip:
+Admin: full access!
