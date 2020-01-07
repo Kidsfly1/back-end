@@ -1,10 +1,11 @@
 const router = require("express").Router();
 
 const Trips = require("./trip-model");
+const { validTrip } = require("./trip-middleware");
 const restricted = require("../auth/restricted-middleware");
 
 // add trip
-router.post("/", (req, res) => {
+router.post("/", restricted, validTrip, (req, res) => {
   Trips.addTrip(req.body)
     .then(saved => {
       res.status(201).json(saved);
@@ -38,6 +39,20 @@ router.get("/:id", (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ message: "Error while getting trip" });
+    });
+});
+
+// get trip by agent id
+router.get("/agent/:id", (req, res) => {
+  const id = req.params.id;
+
+  Trips.getByAgentId(id)
+    .then(trip => {
+      res.status(200).json(trip);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Error while getting trip by agent" });
     });
 });
 

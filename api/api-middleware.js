@@ -57,7 +57,9 @@ async function validRegister(req, res, next) {
   }
 
   req.body.created = Date.now();
-  req.body.role_id = 1;
+  if (!user.role_id) {
+    req.body.role_id = 1;
+  }
   next();
 }
 
@@ -77,4 +79,5 @@ async function validLogin(req, res, next) {
       message: "Missing password"
     });
   }
+  next();
 }

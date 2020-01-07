@@ -42,17 +42,15 @@ exports.up = function(knex) {
     .createTable("trips", tbl => {
       tbl.increments();
 
-      tbl.date("date").notNullable();
+      tbl.string("date").notNullable();
 
       tbl.string("airport", 255).notNullable();
 
       tbl.string("flight", 255).notNullable();
 
-      tbl.time("departure").notNullable();
+      tbl.string("departure").notNullable();
 
       tbl.string("carryOn", 255).notNullable();
-
-      tbl.string("checked", 255).notNullable();
 
       tbl.string("agentReq", 255);
 
