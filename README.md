@@ -6,6 +6,8 @@ Back end for lambda schoosl build week project Kids Fly!!
 
 Where we create accounts for familys and give a painless flying experience for your family. We do this by allowing users to set up trips with agents who can take care of your childs needs around the airport! Snacks, drinks, toys, any special purchase, even checking to make sure your child has all their belongings!!
 
+All endpoints should use the URL https://kids-fly2020.herokuapp.com/
+
 - Endpoints
 
 ---
