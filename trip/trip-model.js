@@ -4,6 +4,7 @@ module.exports = {
   getTrips,
   getTripId,
   getByAgentId,
+  getTripsByUser,
   addTrip,
   update,
   remove
@@ -11,6 +12,10 @@ module.exports = {
 
 function getTrips() {
   return db("trips");
+}
+
+function getTripsByUser(id) {
+  return db("trips").where("family_id", "=", id);
 }
 
 function getTripId(id) {

@@ -1,10 +1,12 @@
+const Users = require("../api/api-model");
+
 module.exports = {
   validTrip
 };
 
 async function validTrip(req, res, next) {
   let trip = req.body;
-  console.log(req, res);
+  // console.log(req, res);
   if (!trip.date) {
     next({
       status: 400,
@@ -39,6 +41,12 @@ async function validTrip(req, res, next) {
       message: "Missing carryOn"
     });
   }
+
+  // find users id
+  let id = await Users.findBy(req.token.username);
+
+  // set there id to create trip
+  req.body.family_id = id.id;
 
   next();
 }

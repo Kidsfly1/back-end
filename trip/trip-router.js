@@ -1,5 +1,6 @@
 const router = require("express").Router();
 
+const Users = require("../api/api-model");
 const Trips = require("./trip-model");
 const { validTrip } = require("./trip-middleware");
 const restricted = require("../auth/restricted-middleware");
@@ -17,7 +18,7 @@ router.post("/", restricted, validTrip, (req, res) => {
 });
 
 // get all trips
-router.get("/", (req, res) => {
+router.get("/", restricted, (req, res) => {
   Trips.getTrips()
     .then(trip => {
       res.status(200).json(trip);
@@ -28,8 +29,21 @@ router.get("/", (req, res) => {
     });
 });
 
+// get all trips by user
+router.get("/mine", restricted, async (req, res) => {
+  let id = await Users.findBy(req.token.username);
+  Trips.getTripsByUser(id.id)
+    .then(trip => {
+      res.status(200).json(trip);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Error while getting trips" });
+    });
+});
+
 // get trip by id
-router.get("/:id", (req, res) => {
+router.get("/:id", restricted, (req, res) => {
   const id = req.params.id;
 
   Trips.getTripId(id)
@@ -43,7 +57,7 @@ router.get("/:id", (req, res) => {
 });
 
 // get trip by agent id
-router.get("/agent/:id", (req, res) => {
+router.get("/agent/:id", restricted, (req, res) => {
   const id = req.params.id;
 
   Trips.getByAgentId(id)
@@ -57,7 +71,7 @@ router.get("/agent/:id", (req, res) => {
 });
 
 // update trip by id
-router.put("/:id", (req, res) => {
+router.put("/:id", restricted, validTrip, (req, res) => {
   const id = req.params.id;
 
   Trips.update(id, req.body)
@@ -71,7 +85,7 @@ router.put("/:id", (req, res) => {
 });
 
 // delete trip by id
-router.delete("/:id", (req, res) => {
+router.delete("/:id", restricted, (req, res) => {
   const id = req.params.id;
 
   Trips.remove(id)
