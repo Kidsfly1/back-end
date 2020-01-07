@@ -3,9 +3,10 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const Users = require("./api-model.js");
+const { validRegister, validLogin } = require("./api-middleware");
 const restricted = require("../auth/restricted-middleware");
 
-router.post("/register", (req, res) => {
+router.post("/register", validRegister, (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 12);
   user.password = hash;
@@ -20,7 +21,7 @@ router.post("/register", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/login", validLogin, (req, res) => {
   let { username, password } = req.body;
 
   Users.findBy(username)

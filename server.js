@@ -46,4 +46,10 @@ server.use("/", (req, res) => {
   res.status(200).json("server is running!");
 });
 
+// error handling middleware
+server.use((err, req, res, next) => {
+  console.log(err);
+  res.status(err.status).json(err.message);
+});
+
 module.exports = server;
