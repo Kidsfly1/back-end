@@ -50,7 +50,9 @@ exports.up = function(knex) {
 
       tbl.string("departure").notNullable();
 
-      tbl.string("carryOn", 255).notNullable();
+      tbl.integer("carryOn").notNullable();
+
+      tbl.integer("children").notNullable();
 
       tbl.string("agentReq", 255);
 

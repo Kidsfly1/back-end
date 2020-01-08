@@ -29,6 +29,7 @@ function addUser(data) {
 
 function findBy(username) {
   return db("users")
+    .join("roles", { "roles.id": "users.role_id" })
     .where("username", "=", username)
     .first();
 }

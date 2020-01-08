@@ -54,7 +54,8 @@ Parameter | Type | Required | Description
 - airport: String: true: 255 char max
 - flight: String: true: 255 char max
 - departure: String: true: time of departure accepts any format of time
-- carryOn: String: true: list items that are carry on if none put "none" 255 char max
+- carryOn: Integer: true: number of items carrying on flight
+- children: Integer: true: number of children on flight
 - agentReq: String: false: Male or Female.. etc 255 char max
 - special: String: false: Any special request?? 255 char max
 - upgrades: String: false: Any upgrades purchased? 255 char max
@@ -183,14 +184,14 @@ Admin: full access!
 
 Parameter | Type | Required | Description
 
-date: String: true: accepts any format
-airport: String: true: 255 char max
-flight: String: true: 255 char max
-departure: String: true: time of departure accepts any format of time
-carryOn: String: true: list items that are carry on if none put "none" 255 char max
-agentReq: String: false: Male or Female.. etc 255 char max
-special: String: false: Any special request?? 255 char max
-upgrades: String: false: Any upgrades purchased? 255 char max
+- date: String: true: accepts any format
+- airport: String: true: 255 char max
+- flight: String: true: 255 char max
+- departure: String: true: time of departure accepts any format of time
+- carryOn: String: true: list items that are carry on if none put "none" 255 char max
+- agentReq: String: false: Male or Female.. etc 255 char max
+- special: String: false: Any special request?? 255 char max
+- upgrades: String: false: Any upgrades purchased? 255 char max
 
 !IMPORTANT! When updating any value you must send all values even values that don't change!
 
