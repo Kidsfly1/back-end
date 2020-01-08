@@ -78,7 +78,7 @@ Parameter | Type | Required | Description
 ---
 
 GET ALL AGENTS
-POST /api/user/agents
+GET /api/user/agents
 
 Only for admin use and returns all agents
 
