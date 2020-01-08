@@ -43,6 +43,22 @@ router.post("/login", validLogin, (req, res) => {
     });
 });
 
+// update user info
+router.put("/:id", restricted, (req, res) => {
+  const id = req.params.id;
+
+  Users.update(id, req.body)
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(err => {
+      console.log(err);
+      res
+        .status(500)
+        .json({ message: "server crashed while trying to update user" });
+    });
+});
+
 // get all users restricted!
 router.get("/", restricted, (req, res) => {
   Users.getUsers()
@@ -52,6 +68,23 @@ router.get("/", restricted, (req, res) => {
     .catch(err => {
       console.log(err);
       res.status(500).json({ message: "failed to get users" });
+    });
+});
+
+// find all agents
+router.get("/agents", restricted, (req, res) => {
+  Users.getAllAgents()
+    .then(agents => {
+      let noPAgent = [];
+      agents.forEach(agent => {
+        agent.password = undefined;
+        noPAgent.push(agent);
+      });
+      res.status(200).json(noPAgent);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ message: "Error while getting all agents" });
     });
 });
 

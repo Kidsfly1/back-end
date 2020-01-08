@@ -42,6 +42,13 @@ async function validTrip(req, res, next) {
     });
   }
 
+  if (!trip.children) {
+    next({
+      status: 400,
+      message: "Missing children"
+    });
+  }
+
   // find users id
   let id = await Users.findBy(req.token.username);
 

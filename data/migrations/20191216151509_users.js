@@ -16,17 +16,17 @@ exports.up = function(knex) {
         .notNullable()
         .unique();
 
-      tbl.string("password", 8000).notNullable();
+      tbl.string("password", 8000);
 
-      tbl.string("fullname", 255).notNullable();
+      tbl.string("fullname", 255);
 
-      tbl.string("phone", 255).notNullable();
+      tbl.string("phone", 255);
 
-      tbl.string("address", 255).notNullable();
+      tbl.string("address", 255);
 
-      tbl.string("state", 255).notNullable();
+      tbl.string("state", 255);
 
-      tbl.integer("zip").notNullable();
+      tbl.integer("zip");
 
       tbl.string("created").notNullable();
 

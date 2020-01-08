@@ -3,8 +3,10 @@ const db = require("../data/db-config");
 module.exports = {
   getUsers,
   getUserId,
+  getAllAgents,
   addUser,
-  findBy
+  findBy,
+  update
 };
 
 function getUsers() {
@@ -32,4 +34,19 @@ function findBy(username) {
     .join("roles", { "roles.id": "users.role_id" })
     .where("username", "=", username)
     .first();
+}
+
+function update(id, changed) {
+  return (
+    db("users")
+      // .returning("*")
+      .update(changed)
+      .where("id", "=", id)
+  );
+}
+
+function getAllAgents() {
+  return db("users")
+    .join("roles", { "roles.id": "users.role_id" })
+    .where("role_id", "=", "2");
 }

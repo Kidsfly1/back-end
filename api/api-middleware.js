@@ -21,40 +21,40 @@ async function validRegister(req, res, next) {
     });
   }
 
-  if (!user.fullname) {
-    next({
-      status: 400,
-      message: "Missing fullname"
-    });
-  }
+  // if (!user.fullname) {
+  //   next({
+  //     status: 400,
+  //     message: "Missing fullname"
+  //   });
+  // }
 
-  if (!user.phone) {
-    next({
-      status: 400,
-      message: "Missing phone"
-    });
-  }
+  // if (!user.phone) {
+  //   next({
+  //     status: 400,
+  //     message: "Missing phone"
+  //   });
+  // }
 
-  if (!user.address) {
-    next({
-      status: 400,
-      message: "Missing address"
-    });
-  }
+  // if (!user.address) {
+  //   next({
+  //     status: 400,
+  //     message: "Missing address"
+  //   });
+  // }
 
-  if (!user.state) {
-    next({
-      status: 400,
-      message: "Missing state"
-    });
-  }
+  // if (!user.state) {
+  //   next({
+  //     status: 400,
+  //     message: "Missing state"
+  //   });
+  // }
 
-  if (!user.zip) {
-    next({
-      status: 400,
-      message: "Missing zip"
-    });
-  }
+  // if (!user.zip) {
+  //   next({
+  //     status: 400,
+  //     message: "Missing zip"
+  //   });
+  // }
 
   req.body.created = Date.now();
   if (!user.role_id) {
