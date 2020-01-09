@@ -57,8 +57,9 @@ router.get("/:id", restricted, (req, res) => {
 });
 
 // get trips by agent id
-router.get("/agent", restricted, async (req, res) => {
-  const id = await Users.findBy(req.token.username);
+router.get("/agent/:id", restricted, async (req, res) => {
+  // const id = await Users.findBy(req.token.username);
+  const id = req.params.id;
   Trips.getByAgentId(id)
     .then(trip => {
       res.status(200).json(trip);

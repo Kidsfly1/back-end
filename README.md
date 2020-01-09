@@ -160,7 +160,7 @@ Example Response:
 ---
 
 GET TRIPS BY AGENT ID
-GET /api/trip/agent
+GET /api/trip/agent/:agent_id
 
 Only for agent use
 
