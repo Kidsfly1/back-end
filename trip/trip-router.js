@@ -70,7 +70,7 @@ router.get("/agent", restricted, async (req, res) => {
 });
 
 // update trip by id
-router.put("/:id", restricted, validTrip, (req, res) => {
+router.put("/:id", restricted, (req, res) => {
   const id = req.params.id;
 
   Trips.update(id, req.body)
