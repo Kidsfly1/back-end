@@ -34,6 +34,7 @@ function findBy(username) {
     .select(
       "users.id",
       "users.username",
+      "users.password",
       "users.fullname",
       "users.phone",
       "users.address",
