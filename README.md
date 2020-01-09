@@ -109,7 +109,7 @@ Example Response:
 ---
 
 GET MY TRIPS
-GET /api/trip/my
+GET /api/trip/my/:id
 
 Only for family use
 
