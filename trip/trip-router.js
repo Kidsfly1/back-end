@@ -30,9 +30,10 @@ router.get("/admin", restricted, (req, res) => {
 });
 
 // get all trips by user
-router.get("/my", restricted, async (req, res) => {
-  const id = await Users.findBy(req.token.username);
-  Trips.getTripsByUser(id.id)
+router.get("/my/:id", restricted, async (req, res) => {
+  // const id = await Users.findBy(req.token.username);
+  const id = req.params.id;
+  Trips.getTripsByUser(id)
     .then(trip => {
       res.status(200).json(trip);
     })
