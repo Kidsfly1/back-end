@@ -214,6 +214,7 @@ Parameter | Type | Required | Description
 - agentReq: String: false: Male or Female.. etc 255 char max
 - special: String: false: Any special request?? 255 char max
 - upgrades: String: false: Any upgrades purchased? 255 char max
+- agent_id: Integer: false: Links to the id of the agent responsible
 
 !IMPORTANT! When updating any value you must send all values even values that don't change!
 
