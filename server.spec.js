@@ -13,11 +13,25 @@ describe("server", () => {
       return request(server)
         .post("/api/user/register")
         .send({
-          username: "asdfasdfasdf",
-          password: "asdfasdf"
+          username: "Addison",
+          password: "asdf"
+          // created: "apple",
+          // role_id: 1
         })
         .then(response => {
           expect(response.status).toBe(201);
+        });
+    });
+    it("should return a username and id", () => {
+      return request(server)
+        .post("/api/user/register")
+        .send({
+          username: "Greg",
+          password: "asdfasdf"
+        })
+        .then(response => {
+          expect(response.body.id);
+          expect(response.body.username);
         });
     });
   });
