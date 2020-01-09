@@ -46,7 +46,19 @@ function update(id, changed) {
 }
 
 function getAllAgents() {
-  return db("users")
+  return db
+    .select(
+      "users.id",
+      "users.username",
+      "users.fullname",
+      "users.phone",
+      "users.address",
+      "users.state",
+      "users.zip",
+      "users.created",
+      "roles.role"
+    )
+    .from("users")
     .join("roles", { "roles.id": "users.role_id" })
     .where("role_id", "=", "2");
 }
