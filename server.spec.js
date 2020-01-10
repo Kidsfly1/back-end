@@ -86,7 +86,37 @@ describe("server", () => {
       return request(server)
         .get("/api/user/agents")
         .then(response => {
-          expect(response.body);
+          expect(response.body.agents);
+        });
+    });
+  });
+
+  describe("api/trip/admin", () => {
+    it("should return trips", () => {
+      return request(server)
+        .get("/api/trip/")
+        .then(response => {
+          expect(response.body.trip);
+        });
+    });
+  });
+
+  describe("api/trip/logout", () => {
+    it("should log user out", () => {
+      return request(server)
+        .get("/api/user/logout")
+        .then(response => {
+          expect(response.body.trip);
+        });
+    });
+  });
+
+  describe("api/trip/logout", () => {
+    it("should log user out", () => {
+      return request(server)
+        .get("/api/user/logout")
+        .then(response => {
+          expect(response.body.trip);
         });
     });
   });
