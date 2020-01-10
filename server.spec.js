@@ -86,7 +86,6 @@ describe("server", () => {
       return request(server)
         .get("/api/user/agents")
         .then(response => {
-          console.log(response.body);
           expect(response.body);
         });
     });
